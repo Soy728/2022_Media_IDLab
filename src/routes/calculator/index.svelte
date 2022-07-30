@@ -35,7 +35,7 @@
 	<div class = "mainpad">
  		<div class="frame">
 			
-			<Button {text}onClick={(value) => calculator(value)} color="gray" />
+			<Button {text} onClick={(value) => calculator(value)} color="gray" />
 			
 			<!-- <Button {texttop} onClick={(value) => returnnum(value)} color="gray" /> -->
 
