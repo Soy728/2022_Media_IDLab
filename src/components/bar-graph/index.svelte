@@ -9,7 +9,6 @@
 	export let years:number;
 	
 	
-    
 	minV = Math.min(...data);
 	maxV = Math.max(...data);
 	const range = maxV - minV;
@@ -35,15 +34,6 @@
 					<line x2="100%" stroke="black" ></line>
 				</svg>
 				{/each}
-			<!-- <svg>
-				{#each leftGuides as v}
-				
-				<line x2="100%"></line>
-				<text y="{v}">{v}</text>
-				
-				{/each}
-			</svg> -->
-		</div>
 
 		<div class="graphics">
 			<slot />
@@ -80,7 +70,6 @@
 				.guide-item {
 					flex: 1 0;
 				}
-				
 			}
 			
 			.graphics {

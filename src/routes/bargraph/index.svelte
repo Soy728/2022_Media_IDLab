@@ -8,7 +8,8 @@
 	{year:2015,data:9}, 
 	{year:2016,data:10}, 
 	{year:2017,data:12}, 
-	{year:2018,data:15}]
+	{year:2018,data:15}	]
+
 	let data:number[] = [1,4,5,7,9,10,12,15];
 	let years:number[] = [2011,2012,2013,2014,2015,2016,2017,2019];
 
