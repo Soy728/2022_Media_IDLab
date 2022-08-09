@@ -17,8 +17,6 @@
 		  	<rect fill="#33691E" width='100%' height= '{height}%'></rect>
 		</g>
 	</svg>
-	  
-	
 </div>
 
 <style lang="scss">

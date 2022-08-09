@@ -1,6 +1,11 @@
 <script lang="ts">
 	import { BarGraph, BarItem } from '@src/components/bar-graph';
-	let datas: [] = 
+	import{ onMount,onDestroy} from 'svelte';
+	import{ updateData, priceData, type PriceUnit} from '@src/store';
+
+	interface Chart {year: number; data: number}
+
+	let datas:Chart[] = 
 	[{year:2011,data:1},
 	{year:2012,data:4}, 
 	{year:2013,data:5}, 
@@ -17,19 +22,43 @@
 	let minV: number;
 	let maxV: number;
 
+	onMount(()=>{
+		updateData(7);
+	});
 
 </script>
 
 <div class="root">
-	<h1>Graph Component Example</h1>
+	<select>
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+	</select>
+	
+	<!-- <h1>{$priceData.length}</h1> -->
+
+	<div>
+	   <div class = "table"> 
+		 	{#each $priceData as price}
+		   	<div class = "item" style = "display:flex">
+				<div class = "name">{price.denom}</div>
+				<div class ="timestamp">{price.timestamp}</div>
+				<div class ="price">{price.price}</div>
+		    </div>
+		   {/each}
+	   </div>
+    </div>
+</div>
+
+<!--
 	<div class="graph-field">
 		<BarGraph {data} {title} {years} bind:minV bind:maxV>
 			{#each datas as d}
-				<BarItem min={minV} max={maxV} value={d.data} year={d.year}/>
+				<BarItem min={minV} max={maxV} value={d.data}/>
 			{/each}
 		</BarGraph>
-	</div>
-</div>
+	</div> -->
+
 
 <style lang="scss">
 	.root {

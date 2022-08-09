@@ -1,12 +1,11 @@
 <script lang="ts">
 	/*graph*/
 	export let data:number[];
-	export let datas: [];
 	export let title: string;
 	export let guideCount: number = 8;
 	export let minV: number;
 	export let maxV: number;
-	export let years:number;
+	export let years:number[];
 	
 	
 	minV = Math.min(...data);
@@ -26,13 +25,13 @@
 
 <div class="root">
 	<div class="title-field">{title}</div>
-	<div class="graph-field">
-		<div class="l-guide">
-			{#each leftGuides as v}
-				<div class="guide-item">{v}</div>
-				<svg>
-					<line x2="100%" stroke="black" ></line>
-				</svg>
+		<div class="graph-field">
+			<div class="l-guide">
+				{#each leftGuides as v}
+					<div class="guide-item">{v}</div>
+					<svg>
+						<line x2="100%" stroke="black" ></line>
+					</svg>
 				{/each}
 
 		<div class="graphics">
@@ -43,10 +42,11 @@
 	<!-- <svg viewBox ="0 0 100% 100%">
 		<g class='item'>
 			{#each years as y,i}
-			<text x="{i*guideCount*10}" y= "40" class="year">{y}</text>
+				<text x="{i*guideCount*10}" y= "40" class="year">{y}</text>
 			{/each}
 		</g>
 	</svg> -->
+	</div>
 </div>
 
 <style lang="scss">
