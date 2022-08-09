@@ -5,7 +5,7 @@ import { writable } from "svelte/store";
 
 export const priceData = writable<PriceUnit[]>([]);
 
-function getUrl(days: 7|30|90|180|360){
+function getUrl(days:number){
     return `https://dashboard-mintscan.s3.ap-northeast-2.amazonaws.com/research/market/${days}.csv`;
 }
 
@@ -17,18 +17,18 @@ export interface PriceUnit{
     dayVolume: number;
 }
 
-export async function updateData(days: 7|30|90|180|360){
+export async function updateData(days: number){
     const data = (await axios.get<string>(getUrl(days))).data;
     const prices = _(data.split('\n'))
     .drop(1)
-    .map((l)=>{
-        const eles = l.split(',');
+    .map((a)=>{
+        const eles = a.split(',');
         return{
             denom: eles[0],
             timestamp: Number(eles[1]),
-            price: Number(eles[1]),
-            marketCap: Number(eles[1]),
-            dayVolume: Number(eles[1])
+            price: Number(eles[2]),
+            marketCap: Number(eles[3]),
+            dayVolume: Number(eles[4])
 
         } as PriceUnit;
     })
