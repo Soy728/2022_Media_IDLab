@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { BarGraph, BarItem } from '@src/components/bar-graph';
-	import{ onMount,onDestroy} from 'svelte';
-	import{ updateData, priceData, type PriceUnit} from '@src/store';
+	import { onMount, onDestroy } from 'svelte';
+	import { updateData, priceData, type PriceUnit } from '@src/store';
 
-/*	interface Chart {year: number; data: number}
+	/*	interface Chart {year: number; data: number}
 
 	let datas:Chart[] = 
 	[{year:2011,data:1},
@@ -22,49 +22,46 @@
 	let title: string = 'Worldwide Number of Electric Cars';
 	let minV: number;
 	let maxV: number;
-    let value:number = 7;
+	let value: number = 7;
 
-	onMount(()=>{
+	onMount(() => {
 		updateData(value);
 	});
-
 </script>
 
 <div class="root">
-	<select name= "select" bind:value on:change="{() => updateData(value)}">
-		<option value=7>7</option>
-		<option value=30>30</option>
-		<option value=90>90</option>
-		<option value=180>180</option>
-		<option value=360>360</option>
+	<select name="select" bind:value on:change={() => updateData(value)}>
+		<option value="7">7</option>
+		<option value="30">30</option>
+		<option value="90">90</option>
+		<option value="180">180</option>
+		<option value="360">360</option>
 	</select>
-	
-	<h3>Length: {$priceData.length}</h3> 
+
+	<h3>Length: {$priceData.length}</h3>
 
 	<div>
-	   <div class = "table"  style="overflow:scroll; width:800px; height:500px; padding:10px;"> 
-		  <table>
-			<tr>
-                <th>denom</th>
-                <th>timestamp</th>
-				<th>price</th>
-                <th>marketCap</th>
-				<th>dayVolume</th>
-            </tr>
-		 	{#each $priceData as price}
-		  
+		<div class="table" style="overflow:scroll; width:800px; height:500px; padding:10px;">
+			<table>
 				<tr>
-					<td class = "name">{price.denom}</td>
-					<td class ="timestamp">{price.timestamp}</td>
-					<td class ="price">{price.price}</td>
-					<td class ="marketCap">{price.marketCap}</td>
-					<td class ="dayVolume">{price.dayVolume}</td>
+					<th>denom</th>
+					<th>timestamp</th>
+					<th>price</th>
+					<th>marketCap</th>
+					<th>dayVolume</th>
 				</tr>
-		
-		   {/each}
+				{#each $priceData as price}
+					<tr>
+						<td class="name">{price.denom}</td>
+						<td class="timestamp">{price.timestamp}</td>
+						<td class="price">{price.price}</td>
+						<td class="marketCap">{price.marketCap}</td>
+						<td class="dayVolume">{price.dayVolume}</td>
+					</tr>
+				{/each}
 			</table>
 		</div>
-    </div>
+	</div>
 </div>
 
 <!--
@@ -75,8 +72,6 @@
 			{/each}
 		</BarGraph>
 	</div> -->
-
-
 <style lang="scss">
 	.root {
 		position: relative;
@@ -92,49 +87,49 @@
 		padding: 0;
 		margin: 0;
 	}
-/*select*/
-select {
-  box-sizing: border-box;
-  width: 100px;
-  padding: 4px;
-  font-size: 14px;
-  border-radius: 6px;
-}
+	/*select*/
+	select {
+		box-sizing: border-box;
+		width: 100px;
+		padding: 4px;
+		font-size: 14px;
+		border-radius: 6px;
+	}
 
-option {
-  padding: 4px;
-  font-size: 14px;
-  color: #fff;
-  background: #272822;
-}
+	option {
+		padding: 4px;
+		font-size: 14px;
+		color: #fff;
+		background: #272822;
+	}
 
-/*table*/
-body {
-  color: #666;
- }
-table {
-  border-spacing: 0;
-  width: 100%;
-}
+	/*table*/
+	body {
+		color: #666;
+	}
+	table {
+		border-spacing: 0;
+		width: 100%;
+	}
 
-th,td {
-  padding: 6px 15px;
-}
-th {
-  background: #42444e;
-  color: #fff;
-  text-align: left;
-}
+	th,
+	td {
+		padding: 6px 15px;
+	}
+	th {
+		background: #42444e;
+		color: #fff;
+		text-align: left;
+	}
 
-td {
-  border-right: 1px solid #c6c9cc;
-  border-bottom: 1px solid #c6c9cc;
-}
-td:first-child {
-  border-left: 1px solid #c6c9cc;
-}
-tr:nth-child(even) td {
-  background: #eaeaed;
-}
-
+	td {
+		border-right: 1px solid #c6c9cc;
+		border-bottom: 1px solid #c6c9cc;
+	}
+	td:first-child {
+		border-left: 1px solid #c6c9cc;
+	}
+	tr:nth-child(even) td {
+		background: #eaeaed;
+	}
 </style>
