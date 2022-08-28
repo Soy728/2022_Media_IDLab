@@ -12,9 +12,9 @@
 </script>
 
 <div class="root">
-	<svg viewBox ="0 0 100% 100%">
-		<g class='item'>
-		  	<rect fill="#33691E" width='100%' height= '{height}%'></rect>
+	<svg viewBox="0 0 100% 100%">
+		<g class="item">
+			<rect fill="#33691E" width="100%" height="{height}%" />
 		</g>
 	</svg>
 </div>
@@ -23,16 +23,15 @@
 	.root {
 		flex: 1 0;
 		position: relative;
-		
+
 		svg {
 			transform: rotate(180deg);
-			// transform: scaleY(-1);
 			position: absolute;
 			bottom: 0px;
 			height: 100%;
 			width: 50%;
 		}
-		text{
+		text {
 			transform: rotate(180deg);
 		}
 	}
