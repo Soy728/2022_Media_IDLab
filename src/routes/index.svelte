@@ -6,7 +6,7 @@
 <ul>
 	{#each week as w}
 		<li>
-			<a target="_blank" href="http://localhost:3000/{w}">
+			<a target="_blank" href="https://my-app-6f5df.firebaseapp.com/{w}">
 				{w}
 			</a>
 		</li>
