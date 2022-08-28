@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { BarGraph, BarItem } from '@src/components/bar-graph';
 	import _ from 'lodash';
 	import { onMount, onDestroy } from 'svelte';
 	import { updateData, priceData, type PriceUnit } from '@src/store';
@@ -7,8 +6,6 @@
 
 	import * as d3 from 'd3';
 
-	let data: number[] = [1, 2, 3, 5, 8];
-	let title: string = 'Worldwide Number of Electric Cars';
 	let minV: number;
 	let maxV: number;
 	let value: 7 | 30 | 90 | 180 | 360 = 7;
